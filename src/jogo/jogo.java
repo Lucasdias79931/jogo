@@ -287,6 +287,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                 bt1.setText(aux);
                  chave=false;
+                 test[0]=aux;
                 if(bt2.getText().equals(aux)){
                       
                       bt2.setText("");
@@ -310,16 +311,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -370,32 +370,8 @@ public class jogo extends javax.swing.JFrame {
                     test[14]="";
                     
                 }
-                 /*
-                int cont=0;
-                int verifica=0;
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-                
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
-                            verifica++;
-                        }
-                    }
-                }
-                
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
-                }
-                */
+                 
+               
             }
           
        }
@@ -411,6 +387,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                 bt13.setText(aux);
                  chave=false;
+                 test[12]=aux;
                 if(bt12.getText().equals(aux)){
                       
                       bt12.setText("");
@@ -437,21 +414,21 @@ public class jogo extends javax.swing.JFrame {
                 for(int j=0;j<15;j++){
                         if(!(test[j].equals(""))){
                             cont++;
+                           
                         }
                     }
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+               if(cont==15){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -499,16 +476,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
-                JOptionPane.showMessageDialog(null,"Verifica = "+verifica+"\ncont= "+cont,"",1);
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -524,6 +500,7 @@ public class jogo extends javax.swing.JFrame {
             if(chave==false&&!(bt2.getText().equals(""))){
                 aux=bt2.getText();
                 chave=true;
+                 test[1]=aux;
             }else if(chave==true){
                  bt2.setText(aux);
                  chave=false;
@@ -554,16 +531,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                      int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -582,6 +558,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                 bt3.setText(aux);
                  chave=false;
+                  test[2]=aux;
                 if(bt4.getText().equals(aux)){
                       
                       bt4.setText("");
@@ -609,16 +586,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -633,6 +609,8 @@ public class jogo extends javax.swing.JFrame {
             if(chave==false&&!(bt6.getText().equals(""))){
                 aux=bt6.getText();
                 chave=true;
+                //atualiza a posição do botão atual com o seu correspondente no vetor "test"
+                test[5]=aux;
              }else if(chave==true){
                  bt6.setText(aux);
                  chave=false;
@@ -663,16 +641,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -691,6 +668,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt11.setText(aux);
                  chave=false;
+                  test[10]=aux;
                 if(bt6.getText().equals(aux)){
                       
                       bt6.setText("");
@@ -718,16 +696,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                       int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -746,6 +723,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt12.setText(aux);
                  chave=false;
+                 test[11]=aux;
                 if(bt11.getText().equals(aux)){
                       
                       bt11.setText("");
@@ -778,16 +756,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -803,6 +780,7 @@ public class jogo extends javax.swing.JFrame {
             if(chave==false&&!(bt7.getText().equals(""))){
                 aux=bt7.getText();
                 chave=true;
+                 test[6]=aux;
              }else if(chave==true){
                  bt7.setText(aux);
                  chave=false;
@@ -839,16 +817,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -867,6 +844,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt8.setText(aux);
                  chave=false;
+                  test[7]=aux;
                 if(bt3.getText().equals(aux)){
                       
                       bt3.setText("");
@@ -898,17 +876,16 @@ public class jogo extends javax.swing.JFrame {
                     }
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+               if(cont==15){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -927,6 +904,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt14.setText(aux);
                  chave=false;
+                 test[13]=aux;
                 if(bt9.getText().equals(aux)){
                       
                       bt9.setText("");
@@ -959,16 +937,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -987,6 +964,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt9.setText(aux);
                  chave=false;
+                  test[8]=aux;
                 if(bt4.getText().equals(aux)){
                       
                       bt4.setText("");
@@ -1020,16 +998,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -1048,6 +1025,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt4.setText(aux);
                  chave=false;
+                  test[3]=aux;
                 if(bt3.getText().equals(aux)){
                       
                       bt3.setText("");
@@ -1075,17 +1053,16 @@ public class jogo extends javax.swing.JFrame {
                     }
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+               if(cont==15){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -1104,6 +1081,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                 bt5.setText(aux);
                  chave=false;
+                  test[4]=aux;
                 if(bt4.getText().equals(aux)){
                       
                       bt4.setText("");
@@ -1127,16 +1105,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
@@ -1155,6 +1132,7 @@ public class jogo extends javax.swing.JFrame {
              }else if(chave==true){
                  bt10.setText(aux);
                  chave=false;
+                  test[9]=aux;
                 if(bt5.getText().equals(aux)){
                       
                       bt5.setText("");
@@ -1182,16 +1160,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
                 if(cont==15){
-                    for(int i=0;i<15;i++){
-                        int z=test[1].compareTo(test[i+1]);
-                        if(z<0){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
                         }
                     }
                 }
                 
-                //se os blocos estiverem em ordem, diga que o jogador venceu
-                if(verifica==15){
+                if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             }
