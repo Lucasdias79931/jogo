@@ -16,13 +16,13 @@ import javax.swing.JOptionPane;
 public class jogo extends javax.swing.JFrame {
         
         String aux="";
-        
         String[] test=new String[15];
-        
+        int jogada=0;
       
+        Random rang = new Random(); //usar para embaralhar
         
-      public void embaralhar(int v[]){
-          Random rang = new Random();
+      public void embaralhar(int v[]){  //usar para embaralhar
+          
 
 		for (int i=0; i < (v.length - 1); i++) {
 
@@ -40,16 +40,28 @@ public class jogo extends javax.swing.JFrame {
      */
     public jogo() {
         initComponents();
-      int[] aux = new int[15];
-       for(int i=0;i<15;i++){
+        
+      int[] aux = new int[15]; 
+      
+       for(int i=0;i<15;i++){   //inicializar aux
            aux[i]=i+1;
        }
-       embaralhar(aux);
+       
+       embaralhar(aux); //embaralhar aux
+       String k= String.valueOf(rang.nextInt(aux.length));  //usar para criar espaço em branca
        
         for(int i=0;i<15;i++){
-            test[i]=String.valueOf(aux[i]);
+            test[i]=String.valueOf(aux[i]); //atribuir os valores de aux em test
          
         }
+        
+        for(int j=0;j<15;j++){      //usar para criar espaço em branca
+            if(k.equals(test[j])){
+                test[j]="";
+            }
+        }
+        
+        //atribuir os valores de test nos botões correspondentes
         
        bt1.setText(test[0]);
        bt2.setText(test[1]);
@@ -68,22 +80,25 @@ public class jogo extends javax.swing.JFrame {
        bt15.setText(test[14]);
        
           /*
-        test[0]=bt1.getText();
-        test[1]=bt2.getText();
-        test[2]=bt3.getText();
-        test[3]=bt4.getText();
-        test[4]=bt5.getText();
-        test[5]=bt6.getText();
-        test[6]=bt7.getText();
-        test[7]=bt8.getText();
-        test[8]=bt9.getText();
-        test[9]=bt10.getText();
-        test[10]=bt11.getText();
-        test[11]=bt12.getText();
-        test[12]=bt13.getText();
-        test[13]=bt14.getText();
-        test[14]=bt15.getText();
-        */
+        bt1.setText("1");
+         bt2.setText("2");
+          bt3.setText("3");
+           bt4.setText("4");
+            bt5.setText("5");
+             bt6.setText("6");
+              bt7.setText("7");
+               bt8.setText("8");
+                bt9.setText("9");
+                 bt10.setText("10");
+                  bt11.setText("11");
+                   bt12.setText("12");
+                    bt13.setText("13");
+                     bt14.setText("");
+                      bt15.setText("14");
+                    */
+        
+        
+        
         
     }
 
@@ -111,118 +126,96 @@ public class jogo extends javax.swing.JFrame {
         bt12 = new javax.swing.JButton();
         bt13 = new javax.swing.JButton();
         bt9 = new javax.swing.JButton();
-        bt16 = new javax.swing.JButton();
         bt14 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        bt1.setText("1");
         bt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt1ActionPerformed(evt);
             }
         });
 
-        bt15.setText("15");
         bt15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt15ActionPerformed(evt);
             }
         });
 
-        bt4.setText("4");
         bt4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt4ActionPerformed(evt);
             }
         });
 
-        bt5.setText("5");
         bt5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt5ActionPerformed(evt);
             }
         });
 
-        bt3.setText("3");
         bt3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt3ActionPerformed(evt);
             }
         });
 
-        bt7.setText("7");
         bt7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt7ActionPerformed(evt);
             }
         });
 
-        bt2.setText("2");
         bt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt2ActionPerformed(evt);
             }
         });
 
-        bt6.setText("6");
         bt6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt6ActionPerformed(evt);
             }
         });
 
-        bt8.setText("8");
         bt8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt8ActionPerformed(evt);
             }
         });
 
-        bt10.setText("10");
         bt10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt10ActionPerformed(evt);
             }
         });
 
-        bt11.setText("11");
         bt11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt11ActionPerformed(evt);
             }
         });
 
-        bt12.setText("12");
         bt12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt12ActionPerformed(evt);
             }
         });
 
-        bt13.setText("13");
         bt13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt13ActionPerformed(evt);
             }
         });
 
-        bt9.setText("9");
         bt9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt9ActionPerformed(evt);
             }
         });
 
-        bt16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt16ActionPerformed(evt);
-            }
-        });
-
-        bt14.setText("14");
         bt14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt14ActionPerformed(evt);
@@ -260,9 +253,7 @@ public class jogo extends javax.swing.JFrame {
                     .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(bt16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,35 +261,31 @@ public class jogo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bt12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bt7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(bt6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(bt16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bt12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bt7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bt6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,7 +295,7 @@ public class jogo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,10 +330,10 @@ public class jogo extends javax.swing.JFrame {
                     test[5]=aux;
                 }
                 
-            
+                jogada++;
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+                for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
@@ -357,8 +344,8 @@ public class jogo extends javax.swing.JFrame {
                 
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -377,77 +364,9 @@ public class jogo extends javax.swing.JFrame {
             
     }//GEN-LAST:event_bt1ActionPerformed
 
-    private void bt16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt16ActionPerformed
-        // TODO add your handling code here:
-       
-        //teste lógico que verifica se algum dos blocos que estão ao redor, que podem interagir com esse botão, está vazio.
-      if((!(bt16.getText().equals("")))&&(bt11.getText().equals("")||bt12.getText().equals("")||bt13.getText().equals("")||bt14.getText().equals("")||bt15.getText().equals(""))){
-            int cont=0;
-            int verifica=0;
-          
-                aux=bt16.getText();
-                bt16.setText("");
-            
-                if(bt11.getText().equals("")){
-                      
-                      bt11.setText(aux);
-                      test[10]=aux;
-                      
-                       
-                      
-                }else if(bt12.getText().equals("")){
-                    
-                    bt12.setText(aux);
-                    test[11]=aux;
-                }else if(bt13.getText().equals("")){
-                     
-                    bt13.setText(aux);
-                     test[12]=aux;
-                }else if(bt14.getText().equals("")){
-                     
-                    bt14.setText(aux);
-                     test[13]=aux;
-                }else if(bt15.getText().equals("")){
-                     
-                    bt15.setText(aux);
-                     test[14]=aux;
-                }
-                test[16]="";
-                
-                
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-                
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
-                        
-                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
-                            verifica++;
-                        }
-                    }
-                }
-                                    
-
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
-                }
-            
-            
-            
-          
-       } 
-        
-    }//GEN-LAST:event_bt16ActionPerformed
-
     private void bt13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt13ActionPerformed
         // TODO add your handling code here:
-       if((!(bt13.getText().equals("")))&&(bt8.getText().equals("")||bt12.getText().equals("")||bt16.getText().equals("")||bt14.getText().equals(""))){
+       if((!(bt13.getText().equals("")))&&(bt8.getText().equals("")||bt12.getText().equals("")||bt14.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -465,10 +384,6 @@ public class jogo extends javax.swing.JFrame {
                     
                     bt14.setText(aux);
                     test[13]=aux;
-                }else if(bt16.getText().equals("")){
-                     
-                    bt16.setText(aux);
-                    
                 }else if(bt8.getText().equals("")){
                      
                     bt8.setText(aux);
@@ -476,18 +391,22 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[12]="";
                 
+                jogada++;
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+             //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -508,13 +427,13 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt15ActionPerformed
     
-     if((!(bt15.getText().equals("")))&&(bt14.getText().equals("")||bt10.getText().equals("")||bt16.getText().equals(""))){
+     if((!(bt15.getText().equals("")))&&(bt14.getText().equals("")||bt10.getText().equals(""))){
             int cont=0;
             int verifica=0;
-          String s="";
+          
                 aux=bt15.getText();
                 for(int i=0;i<15;i++){
-                    s+=test[i]+"\n";
+                   
                 }
                
                 bt15.setText("");
@@ -530,25 +449,25 @@ public class jogo extends javax.swing.JFrame {
                     
                     bt14.setText(aux);
                     test[13]=aux;
-                }else if(bt16.getText().equals("")){
-                     
-                    bt16.setText(aux);
-                     
                 }
                 test[14]="";
                 
+                jogada++;
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+              //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -593,18 +512,22 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[1]="";
                 
-                
+                jogada++;
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -648,19 +571,23 @@ public class jogo extends javax.swing.JFrame {
                      test[3]=aux;
                 }
                 test[2]="";
+                jogada++;
                 
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+               //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -704,18 +631,22 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[5]="";
                 
+                jogada++;
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+               //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -735,21 +666,14 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt11ActionPerformed
         // TODO add your handling code here:
-        if((!(bt11.getText().equals("")))&&(bt6.getText().equals("")||bt16.getText().equals("")||bt12.getText().equals(""))){
+        if((!(bt11.getText().equals("")))&&(bt6.getText().equals("")||bt12.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
                 aux=bt11.getText();
                 bt11.setText("");
             
-                if(bt16.getText().equals("")){
-                      
-                      bt16.setText(aux);
-                      
-                      
-                       
-                      
-                }else if(bt12.getText().equals("")){
+                if(bt12.getText().equals("")){
                     
                     bt12.setText(aux);
                     test[11]=aux;
@@ -760,18 +684,22 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[10]="";
                 
+                jogada++;
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+             //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -791,7 +719,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt12ActionPerformed
         // TODO add your handling code here:
-        if((!(bt12.getText().equals("")))&&(bt11.getText().equals("")||bt16.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals(""))){
+        if((!(bt12.getText().equals("")))&&(bt11.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -813,25 +741,25 @@ public class jogo extends javax.swing.JFrame {
                      
                     bt11.setText(aux);
                      test[10]=aux;
-                }else if(bt16.getText().equals("")){
-                     
-                    bt16.setText(aux);
-                     
                 }
                 test[11]="";
                 
+                jogada++;
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+               //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -879,19 +807,23 @@ public class jogo extends javax.swing.JFrame {
                      test[5]=aux;
                 }
                 test[6]="";
+                jogada++;
                 
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+               //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -938,19 +870,23 @@ public class jogo extends javax.swing.JFrame {
                      test[8]=aux;
                 }
                 test[7]="";
+                jogada++;
                 
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+               //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -970,7 +906,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt14ActionPerformed
         // TODO add your handling code here:
-        if((!(bt14.getText().equals("")))&&(bt13.getText().equals("")||bt16.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals(""))){
+        if((!(bt14.getText().equals("")))&&(bt13.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -988,29 +924,29 @@ public class jogo extends javax.swing.JFrame {
                     
                     bt9.setText(aux);
                     test[8]=aux;
-                }else if(bt16.getText().equals("")){
-                     
-                    bt16.setText(aux);
-                    
                 }else if(bt15.getText().equals("")){
                      
                     bt15.setText(aux);
                      test[14]=aux;
                 }
                 test[13]="";
+                jogada++;
                 
                 
-                
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+               //verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -1021,7 +957,6 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            
             
             
           
@@ -1059,7 +994,7 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[9]="";
                 
-                
+                jogada++;
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -1114,19 +1049,23 @@ public class jogo extends javax.swing.JFrame {
                      test[4]=aux;
                 }
                 test[3]="";
-                
+                jogada++;
                 
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
                     }
+              
+             
+            
+                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -1165,10 +1104,10 @@ public class jogo extends javax.swing.JFrame {
                     test[9]=aux;
                 }
                 
-            
+                jogada++;
                 
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
+              ///verifica se os blocos, de 1 a 15, estão preenchidos
+                 for(int j=0;j<14;j++){
                         if(!(test[j].equals(""))){
                             cont++;
                         }
@@ -1179,8 +1118,8 @@ public class jogo extends javax.swing.JFrame {
                 
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(cont==14){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -1191,7 +1130,6 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            
             
             
           
@@ -1225,7 +1163,7 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[9]="";
                 
-                
+                jogada++;
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -1299,7 +1237,6 @@ public class jogo extends javax.swing.JFrame {
     private javax.swing.JButton bt13;
     private javax.swing.JButton bt14;
     private javax.swing.JButton bt15;
-    private javax.swing.JButton bt16;
     private javax.swing.JButton bt2;
     private javax.swing.JButton bt3;
     private javax.swing.JButton bt4;
