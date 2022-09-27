@@ -4,6 +4,9 @@
  */
 package jogo;
 
+
+
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,15 +21,53 @@ public class jogo extends javax.swing.JFrame {
         
       
         
-        
+      public void embaralhar(int v[]){
+          Random rang = new Random();
+
+		for (int i=0; i < (v.length - 1); i++) {
+
+			
+			int j = rang.nextInt(v.length);
+
+			
+			int temp = v[i];
+			v[i] = v[j];
+			v[j] = temp;
+		}
+      }
     /**
      * Creates new form jogo
      */
     public jogo() {
         initComponents();
+      int[] aux = new int[15];
+       for(int i=0;i<15;i++){
+           aux[i]=i+1;
+       }
+       embaralhar(aux);
+       
+        for(int i=0;i<15;i++){
+            test[i]=String.valueOf(aux[i]);
+         
+        }
         
-        
-                   
+       bt1.setText(test[0]);
+       bt2.setText(test[1]);
+       bt3.setText(test[2]);
+       bt4.setText(test[3]);
+       bt5.setText(test[4]);
+       bt6.setText(test[5]);
+       bt7.setText(test[6]);
+       bt8.setText(test[7]);
+       bt9.setText(test[8]);
+       bt10.setText(test[9]);
+       bt11.setText(test[10]);
+       bt12.setText(test[11]);
+       bt13.setText(test[12]);
+       bt14.setText(test[13]);
+       bt15.setText(test[14]);
+       
+          /*
         test[0]=bt1.getText();
         test[1]=bt2.getText();
         test[2]=bt3.getText();
@@ -42,7 +83,7 @@ public class jogo extends javax.swing.JFrame {
         test[12]=bt13.getText();
         test[13]=bt14.getText();
         test[14]=bt15.getText();
-        
+        */
         
     }
 
@@ -119,6 +160,7 @@ public class jogo extends javax.swing.JFrame {
             }
         });
 
+        bt2.setText("2");
         bt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt2ActionPerformed(evt);
@@ -174,7 +216,6 @@ public class jogo extends javax.swing.JFrame {
             }
         });
 
-        bt16.setText("2");
         bt16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt16ActionPerformed(evt);
@@ -340,92 +381,50 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         //teste lógico que verifica se algum dos blocos que estão ao redor, que podem interagir com esse botão, está vazio.
-       if(bt16.getText().equals("")||bt11.getText().equals("")||bt12.getText().equals("")||bt13.getText().equals("")||bt14.getText().equals("")||bt15.getText().equals("")){
-           //se chave for false, significa que esse é o primeiro botão que o usuário interagio no turno atual 
-           if(chave==false&&!(bt16.getText().equals(""))){
-                aux=bt16.getText();
-                chave=true; 
-              //se chave for verdadeiro, significa que esse é o segundo botão que o usuário interagio no turno atual.  
-            }else if (chave==true){
-                bt16.setText(aux);
-                 chave=false;
-               //após fazer a atribuição no botão atual, o próximo teste tem a responsabilidade de atualizar o botão anterior com o "".
-                 if(bt11.getText().equals(aux)){
-                      
-                     bt11.setText("");
-                     test[10]="";
-                     
-                }else if(bt12.getText().equals(aux)){
-                    
-                    bt12.setText("");
-                    test[11]="";
-                    
-                }else if(bt13.getText().equals(aux)){
-                     
-                    bt13.setText("");
-                    test[12]="";
-                    
-                }else if(bt14.getText().equals(aux)){
-                    
-                    bt14.setText("");
-                    test[13]="";
-                    
-                }else if(bt15.getText().equals(aux)){
-                     
-                    bt15.setText("");
-                    test[14]="";
-                    
-                }
-                 
-               
-            }
+      if((!(bt16.getText().equals("")))&&(bt11.getText().equals("")||bt12.getText().equals("")||bt13.getText().equals("")||bt14.getText().equals("")||bt15.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
           
-       }
-        
-    }//GEN-LAST:event_bt16ActionPerformed
-
-    private void bt13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt13ActionPerformed
-        // TODO add your handling code here:
-        if(bt8.getText().equals("")||bt12.getText().equals("")||bt13.getText().equals("")||bt14.getText().equals("")||bt16.getText().equals("")){
-            if(chave==false&&!(bt13.getText().equals(""))){
-                aux=bt13.getText();
-                chave=true;
-             }else if(chave==true){
-                bt13.setText(aux);
-                 chave=false;
-                 test[12]=aux;
-                if(bt12.getText().equals(aux)){
+                aux=bt16.getText();
+                bt16.setText("");
+            
+                if(bt11.getText().equals("")){
                       
-                      bt12.setText("");
-                      test[11]="";
+                      bt11.setText(aux);
+                      test[10]=aux;
                       
-                }else if(bt8.getText().equals(aux)){
+                       
+                      
+                }else if(bt12.getText().equals("")){
                     
-                    bt8.setText("");
-                    test[7]="";
-                }else if(bt16.getText().equals(aux)){
+                    bt12.setText(aux);
+                    test[11]=aux;
+                }else if(bt13.getText().equals("")){
                      
-                    bt16.setText("");
-                    
-                }else if(bt14.getText().equals(aux)){
-                    
-                    bt14.setText("");
-                    test[13]="";
+                    bt13.setText(aux);
+                     test[12]=aux;
+                }else if(bt14.getText().equals("")){
+                     
+                    bt14.setText(aux);
+                     test[13]=aux;
+                }else if(bt15.getText().equals("")){
+                     
+                    bt15.setText(aux);
+                     test[14]=aux;
                 }
+                test[16]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
                         if(!(test[j].equals(""))){
                             cont++;
-                           
                         }
                     }
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-               if(cont==15){
+                if(cont==15){
                     for(int i=0;i<14;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -433,45 +432,51 @@ public class jogo extends javax.swing.JFrame {
                         }
                     }
                 }
-                
+                                    
+
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            }
+            
             
             
           
-       }       // TODO 
-    
-    }//GEN-LAST:event_bt13ActionPerformed
+       } 
+        
+    }//GEN-LAST:event_bt16ActionPerformed
 
-    private void bt15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt15ActionPerformed
-    
-     if(bt15.getText().equals("")||bt14.getText().equals("")||bt16.getText().equals("")||bt10.getText().equals("")){
-            if(chave==false&&!(bt15.getText().equals(""))){
-                aux=bt15.getText();
-                chave=true;
-             }else if(chave==true){
-                bt15.setText(aux);
-                test[14]=aux;
-                 chave=false;
-                if(bt10.getText().equals(aux)){
+    private void bt13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt13ActionPerformed
+        // TODO add your handling code here:
+       if((!(bt13.getText().equals("")))&&(bt8.getText().equals("")||bt12.getText().equals("")||bt16.getText().equals("")||bt14.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          
+                aux=bt13.getText();
+                bt13.setText("");
+            
+                if(bt12.getText().equals("")){
                       
-                      bt10.setText("");
-                      test[9]="";
+                      bt12.setText(aux);
+                      test[11]=aux;
                       
-                }else if(bt14.getText().equals(aux)){
+                       
+                      
+                }else if(bt14.getText().equals("")){
                     
-                    bt14.setText("");
-                    test[13]="";
-                }else if(bt16.getText().equals(aux)){
+                    bt14.setText(aux);
+                    test[13]=aux;
+                }else if(bt16.getText().equals("")){
                      
-                    bt16.setText("");
+                    bt16.setText(aux);
                     
+                }else if(bt8.getText().equals("")){
+                     
+                    bt8.setText(aux);
+                     test[7]=aux;
                 }
+                test[12]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -492,13 +497,73 @@ public class jogo extends javax.swing.JFrame {
                 
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
-                    
                 }
-            }
+            
             
             
           
-       }       // TODO add your handling code here:
+       }       // TODO 
+    
+    }//GEN-LAST:event_bt13ActionPerformed
+
+    private void bt15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt15ActionPerformed
+    
+     if((!(bt15.getText().equals("")))&&(bt14.getText().equals("")||bt10.getText().equals("")||bt16.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          String s="";
+                aux=bt15.getText();
+                for(int i=0;i<15;i++){
+                    s+=test[i]+"\n";
+                }
+               
+                bt15.setText("");
+            
+                if(bt10.getText().equals("")){
+                      
+                      bt10.setText(aux);
+                      test[9]=aux;
+                      
+                       
+                      
+                }else if(bt14.getText().equals("")){
+                    
+                    bt14.setText(aux);
+                    test[13]=aux;
+                }else if(bt16.getText().equals("")){
+                     
+                    bt16.setText(aux);
+                     
+                }
+                test[14]="";
+                
+                
+                
+                //verifica se os blocos, de 1 a 15, estão preenchidos
+                for(int j=0;j<15;j++){
+                        if(!(test[j].equals(""))){
+                            cont++;
+                        }
+                    }
+                
+                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                if(cont==15){
+                    for(int i=0;i<14;i++){
+                        
+                        if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
+                            verifica++;
+                        }
+                    }
+                }
+                
+                if(verifica==14){
+                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                }
+            
+            
+            
+          
+       }       //     // TODO add your handling code here:
     }//GEN-LAST:event_bt15ActionPerformed
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed
@@ -670,31 +735,32 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt11ActionPerformed
         // TODO add your handling code here:
-        if(bt6.getText().equals("")||bt11.getText().equals("")||bt12.getText().equals("")||bt16.getText().equals("")){
-            if(chave==false&&!(bt11.getText().equals(""))){
+        if((!(bt11.getText().equals("")))&&(bt6.getText().equals("")||bt16.getText().equals("")||bt12.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          
                 aux=bt11.getText();
-                chave=true;
-             }else if(chave==true){
-                 bt11.setText(aux);
-                 chave=false;
-                  test[10]=aux;
-                if(bt6.getText().equals(aux)){
+                bt11.setText("");
+            
+                if(bt16.getText().equals("")){
                       
-                      bt6.setText("");
-                      test[5]="";
+                      bt16.setText(aux);
                       
-                }else if(bt12.getText().equals(aux)){
+                      
+                       
+                      
+                }else if(bt12.getText().equals("")){
                     
-                    bt12.setText("");
-                    test[11]="";
-                }else if(bt16.getText().equals(aux)){
+                    bt12.setText(aux);
+                    test[11]=aux;
+                }else if(bt6.getText().equals("")){
                      
-                    bt16.setText("");
-                    
+                    bt6.setText(aux);
+                     test[5]=aux;
                 }
+                test[10]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -716,45 +782,45 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            }
+            
             
             
           
-       }    
+       }       //
     }//GEN-LAST:event_bt11ActionPerformed
 
     private void bt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt12ActionPerformed
         // TODO add your handling code here:
-        if(bt11.getText().equals("")||bt12.getText().equals("")||bt16.getText().equals("")||bt13.getText().equals("")||bt7.getText().equals("")){
-            if(chave==false&&!(bt12.getText().equals(""))){
+        if((!(bt12.getText().equals("")))&&(bt11.getText().equals("")||bt16.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          
                 aux=bt12.getText();
-                chave=true;
-             }else if(chave==true){
-                 bt12.setText(aux);
-                 chave=false;
-                 test[11]=aux;
-                if(bt11.getText().equals(aux)){
+                bt12.setText("");
+            
+                if(bt13.getText().equals("")){
                       
-                      bt11.setText("");
-                      test[10]="";
+                      bt13.setText(aux);
+                      test[12]=aux;
                       
-                }else if(bt7.getText().equals(aux)){
+                       
+                      
+                }else if(bt7.getText().equals("")){
                     
-                    bt7.setText("");
-                    test[6]="";
-                }else if(bt16.getText().equals(aux)){
+                    bt7.setText(aux);
+                    test[6]=aux;
+                }else if(bt11.getText().equals("")){
                      
-                    bt16.setText("");
-                    
-                }else if(bt13.getText().equals(aux)){
+                    bt11.setText(aux);
+                     test[10]=aux;
+                }else if(bt16.getText().equals("")){
                      
-                    bt13.setText("");
-                    test[12]="";
-                    
+                    bt16.setText(aux);
+                     
                 }
+                test[11]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -776,11 +842,11 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            }
+            
             
             
           
-       }    
+       } 
     }//GEN-LAST:event_bt12ActionPerformed
 
     private void bt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt7ActionPerformed
@@ -844,37 +910,36 @@ public class jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_bt7ActionPerformed
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
-        // TODO add your handling code here
-         if(bt3.getText().equals("")||bt7.getText().equals("")||bt8.getText().equals("")||bt9.getText().equals("")||bt13.getText().equals("")){
-            if(chave==false&&!(bt8.getText().equals(""))){
+        if((!(bt8.getText().equals("")))&&(bt7.getText().equals("")||bt3.getText().equals("")||bt13.getText().equals("")||bt9.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          
                 aux=bt8.getText();
-                chave=true;
-             }else if(chave==true){
-                 bt8.setText(aux);
-                 chave=false;
-                  test[7]=aux;
-                if(bt3.getText().equals(aux)){
+                bt8.setText("");
+            
+                if(bt7.getText().equals("")){
                       
-                      bt3.setText("");
-                      test[2]="";
+                      bt7.setText(aux);
+                      test[6]=aux;
                       
-                }else if(bt7.getText().equals(aux)){
+                       
+                      
+                }else if(bt3.getText().equals("")){
                     
-                    bt7.setText("");
-                    test[6]="";
-                }else if(bt9.getText().equals(aux)){
+                    bt3.setText(aux);
+                    test[2]=aux;
+                }else if(bt13.getText().equals("")){
                      
-                    bt9.setText("");
-                    test[8]="";
-                }else if(bt12.getText().equals(aux)){
+                    bt13.setText(aux);
+                     test[12]=aux;
+                }else if(bt9.getText().equals("")){
                      
-                    bt12.setText("");
-                    test[13]="";
-                    
+                    bt9.setText(aux);
+                     test[8]=aux;
                 }
+                test[7]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -884,7 +949,7 @@ public class jogo extends javax.swing.JFrame {
                     }
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-               if(cont==15){
+                if(cont==15){
                     for(int i=0;i<14;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -896,45 +961,45 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            }
+            
             
             
           
-       }
+       } 
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void bt14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt14ActionPerformed
         // TODO add your handling code here:
-         if(bt9.getText().equals("")||bt13.getText().equals("")||bt14.getText().equals("")||bt15.getText().equals("")||bt16.getText().equals("")){
-            if(chave==false&&!(bt14.getText().equals(""))){
+        if((!(bt14.getText().equals("")))&&(bt13.getText().equals("")||bt16.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          
                 aux=bt14.getText();
-                chave=true;
-             }else if(chave==true){
-                 bt14.setText(aux);
-                 chave=false;
-                 test[13]=aux;
-                if(bt9.getText().equals(aux)){
+                bt14.setText("");
+            
+                if(bt13.getText().equals("")){
                       
-                      bt9.setText("");
-                      test[8]="";
+                      bt13.setText(aux);
+                      test[12]=aux;
                       
-                }else if(bt13.getText().equals(aux)){
+                       
+                      
+                }else if(bt9.getText().equals("")){
                     
-                    bt13.setText("");
-                    test[12]="";
-                }else if(bt16.getText().equals(aux)){
+                    bt9.setText(aux);
+                    test[8]=aux;
+                }else if(bt16.getText().equals("")){
                      
-                    bt16.setText("");
+                    bt16.setText(aux);
                     
-                }else if(bt15.getText().equals(aux)){
+                }else if(bt15.getText().equals("")){
                      
-                    bt15.setText("");
-                    test[14]="";
-                    
+                    bt15.setText(aux);
+                     test[14]=aux;
                 }
+                test[13]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -956,46 +1021,45 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            }
+            
             
             
           
-       }
+       }  
     }//GEN-LAST:event_bt14ActionPerformed
 
     private void bt9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt9ActionPerformed
         // TODO add your handling code here:
-         if(bt4.getText().equals("")||bt8.getText().equals("")||bt9.getText().equals("")||bt10.getText().equals("")||bt14.getText().equals("")){
-            if(chave==false&&!(bt9.getText().equals(""))){
+         if((!(bt9.getText().equals("")))&&(bt8.getText().equals("")||bt14.getText().equals("")||bt4.getText().equals("")||bt8.getText().equals(""))){
+            int cont=0;
+            int verifica=0;
+          
                 aux=bt9.getText();
-                chave=true;
-             }else if(chave==true){
-                 bt9.setText(aux);
-                 chave=false;
-                  test[8]=aux;
-                if(bt4.getText().equals(aux)){
+                bt9.setText("");
+            
+                if(bt4.getText().equals("")){
                       
-                      bt4.setText("");
-                      test[3]="";
+                      bt4.setText(aux);
+                      test[3]=aux;
                       
-                }else if(bt8.getText().equals(aux)){
+                       
+                      
+                }else if(bt8.getText().equals("")){
                     
-                    bt8.setText("");
-                    test[7]="";
-                }else if(bt10.getText().equals(aux)){
+                    bt8.setText(aux);
+                    test[7]=aux;
+                }else if(bt14.getText().equals("")){
                      
-                    bt10.setText("");
-                    test[9]="";
-                    
-                }else if(bt14.getText().equals(aux)){
+                    bt14.setText(aux);
+                     test[13]=aux;
+                }else if(bt10.getText().equals("")){
                      
-                    bt14.setText("");
-                    test[13]="";
-                    
+                    bt10.setText(aux);
+                     test[10]=aux;
                 }
+                test[9]="";
                 
-                int cont=0;
-                int verifica=0;
+                
                 
                 //verifica se os blocos, de 1 a 15, estão preenchidos
                 for(int j=0;j<15;j++){
@@ -1017,11 +1081,11 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==14){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
-            }
+            
             
             
           
-       }
+       } 
     }//GEN-LAST:event_bt9ActionPerformed
 
     private void bt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt4ActionPerformed
