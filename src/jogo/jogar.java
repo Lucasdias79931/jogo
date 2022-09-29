@@ -16,9 +16,9 @@ public class jogar {
     public static void main(String args[]) {
         // TODO code application logic here
         boolean confirme=false;
-        int aux;
+       
         jogo start =new jogo();
-        JOptionPane.showMessageDialog(null,"test","",1);
+        
         
         do{
             start.setVisible(true);
