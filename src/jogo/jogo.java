@@ -305,7 +305,7 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+              //verifica se os blocos de 1 a 14 estão em ordem crescente
                 if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -366,7 +366,7 @@ public class jogo extends javax.swing.JFrame {
                 
                 
                 
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -394,7 +394,7 @@ public class jogo extends javax.swing.JFrame {
     private void bt15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt15ActionPerformed
     
      if((bt14.getText().equals("")||bt10.getText().equals(""))){
-            int cont=0;
+        
             int verifica=0;
           
                 aux=bt15.getText();
@@ -430,7 +430,7 @@ public class jogo extends javax.swing.JFrame {
             
                 
                 
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                 //verifica se os blocos de 1 a 14 estão em ordem crescente
              if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -486,7 +486,7 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+           //verifica se os blocos de 1 a 14 estão em ordem crescente
                 if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -543,7 +543,7 @@ public class jogo extends javax.swing.JFrame {
             
                 
                 
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+           //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -597,7 +597,7 @@ public class jogo extends javax.swing.JFrame {
                 
               
             
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -644,7 +644,7 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
             
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -697,7 +697,7 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+             //verifica se os blocos de 1 a 14 estão em ordem crescente
              if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -755,7 +755,7 @@ public class jogo extends javax.swing.JFrame {
                 
                 
                
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+               //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -812,7 +812,7 @@ public class jogo extends javax.swing.JFrame {
                 
                 
               
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -866,7 +866,7 @@ public class jogo extends javax.swing.JFrame {
                 
                 
                
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                //verifica se os blocos de 1 a 14 estão em ordem crescente
               if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -924,7 +924,7 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+            //verifica se os blocos de 1 a 14 estão em ordem crescente
                 if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -979,7 +979,7 @@ public class jogo extends javax.swing.JFrame {
                 
                 
             
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+                //verifica se os blocos de 1 a 14 estão em ordem crescente
                 if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -1032,7 +1032,7 @@ public class jogo extends javax.swing.JFrame {
                 
                 
               
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+               //verifica se os blocos de 1 a 14 estão em ordem crescente
                 if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
@@ -1084,7 +1084,7 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                
-                //verifica se os blocos de 1 a 15 estão em ordem crescente
+              //verifica se os blocos de 1 a 14 estão em ordem crescente
                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
