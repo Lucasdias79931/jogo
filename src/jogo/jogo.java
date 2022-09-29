@@ -14,54 +14,40 @@ import javax.swing.JOptionPane;
  * @author Fabricio
  */
 public class jogo extends javax.swing.JFrame {
-        
-        String aux="";
+      
         String[] test=new String[15];
         int jogada=0;
-      
-        Random rang = new Random(); //usar para embaralhar
+        String aux="";
         
-      public void embaralhar(int v[]){  //usar para embaralhar
-          
-
-		for (int i=0; i < (v.length - 1); i++) {
-
-			
-			int j = rang.nextInt(v.length);
-
-			
-			int temp = v[i];
-			v[i] = v[j];
-			v[j] = temp;
-		}
-      }
+        int vitoria;
+        
     /**
      * Creates new form jogo
      */
     public jogo() {
         initComponents();
         
-      int[] aux = new int[15]; 
+      int[] a=new int[15];
+      boolean vet=false;
+      Random rang= new Random();
+      for(int i=0;i<15;i++){
+        a[i]=i+1;
+        }
       
-       for(int i=0;i<15;i++){   //inicializar aux
-           aux[i]=i+1;
-       }
+      while(vet==false){
+          int j=rang.nextInt(a.length)*10;
+      }
+      
+      
+      
+      for(int j=0;j<14;j++){
+          test[j]=String.valueOf(a[j]);
+      }
        
-       embaralhar(aux); //embaralhar aux
-       String k= String.valueOf(rang.nextInt(aux.length));  //usar para criar espaço em branca
+        
        
-        for(int i=0;i<15;i++){
-            test[i]=String.valueOf(aux[i]); //atribuir os valores de aux em test
-         
-        }
-        
-        for(int j=0;j<15;j++){      //usar para criar espaço em branca
-            if(k.equals(test[j])){
-                test[j]="";
-            }
-        }
-        
-        //atribuir os valores de test nos botões correspondentes
+
+//atribuir os valores de test nos botões correspondentes
         
        bt1.setText(test[0]);
        bt2.setText(test[1]);
@@ -77,26 +63,22 @@ public class jogo extends javax.swing.JFrame {
        bt12.setText(test[11]);
        bt13.setText(test[12]);
        bt14.setText(test[13]);
-       bt15.setText(test[14]);
+       bt15.setText("");
        
-          /*
-        bt1.setText("1");
-         bt2.setText("2");
-          bt3.setText("3");
-           bt4.setText("4");
-            bt5.setText("5");
-             bt6.setText("6");
-              bt7.setText("7");
-               bt8.setText("8");
-                bt9.setText("9");
-                 bt10.setText("10");
-                  bt11.setText("11");
-                   bt12.setText("12");
-                    bt13.setText("13");
-                     bt14.setText("");
-                      bt15.setText("14");
-                    */
-        
+         
+        /*
+        String aux="";
+        String[] Aux=new String[2];
+          ArrayList<String> nome = new ArrayList();
+          nome.add("l");
+          nome.add("s");
+          Collections.shuffle(nome);
+          int n = nome.size();
+         for(int i=0;i<n;i++){
+             Aux[i]=nome.get(i);
+         }
+         
+       */
         
         
         
@@ -311,11 +293,11 @@ public class jogo extends javax.swing.JFrame {
     private void bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt1ActionPerformed
             // TODO add your handling code here:
             
-     if((!(bt1.getText().equals("")))&&(bt2.getText().equals("")||bt6.getText().equals(""))){
+     if((bt2.getText().equals("")||bt6.getText().equals(""))){
          int cont=0;
          int verifica=0;  
          
-                aux=bt1.getText();
+                aux = bt1.getText();
                 bt1.setText("");
                 test[0]="";
                 if(bt2.getText().equals("")){
@@ -332,19 +314,9 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
-            
-                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -353,8 +325,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -366,7 +340,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt13ActionPerformed
         // TODO add your handling code here:
-       if((!(bt13.getText().equals("")))&&(bt8.getText().equals("")||bt12.getText().equals("")||bt14.getText().equals(""))){
+       if((bt8.getText().equals("")||bt12.getText().equals("")||bt14.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -404,8 +378,9 @@ public class jogo extends javax.swing.JFrame {
             
                 
                 
+                
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -414,8 +389,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -427,14 +404,12 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt15ActionPerformed
     
-     if((!(bt15.getText().equals("")))&&(bt14.getText().equals("")||bt10.getText().equals(""))){
+     if((bt14.getText().equals("")||bt10.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
                 aux=bt15.getText();
-                for(int i=0;i<15;i++){
-                   
-                }
+                
                
                 bt15.setText("");
             
@@ -454,19 +429,20 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-              //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
+              
+              
               
              
             
                 
                 
+               
+             
+            
+                
+                
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -475,9 +451,12 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
+                
             
             
             
@@ -487,7 +466,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed
         // TODO add your handling code here:
-        if((!(bt2.getText().equals("")))&&(bt1.getText().equals("")||bt7.getText().equals("")||bt3.getText().equals(""))){
+        if((bt1.getText().equals("")||bt7.getText().equals("")||bt3.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -514,19 +493,9 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
-            
-                
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -535,8 +504,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -547,7 +518,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt3ActionPerformed
         // TODO add your handling code here:
-         if((!(bt3.getText().equals("")))&&(bt2.getText().equals("")||bt8.getText().equals("")||bt4.getText().equals(""))){
+         if((bt2.getText().equals("")||bt8.getText().equals("")||bt4.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -563,8 +534,8 @@ public class jogo extends javax.swing.JFrame {
                       
                 }else if(bt8.getText().equals("")){
                     
-                    bt7.setText(aux);
-                    test[6]=aux;
+                    bt8.setText(aux);
+                    test[7]=aux;
                 }else if(bt4.getText().equals("")){
                      
                     bt4.setText(aux);
@@ -595,7 +566,7 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
+                if(verifica==13){
                     JOptionPane.showMessageDialog(null,"Vitória","",1);
                 }
             
@@ -606,7 +577,7 @@ public class jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_bt3ActionPerformed
 
     private void bt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt6ActionPerformed
-      if((!(bt6.getText().equals("")))&&(bt1.getText().equals("")||bt7.getText().equals("")||bt11.getText().equals(""))){
+      if((bt1.getText().equals("")||bt7.getText().equals("")||bt11.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -633,19 +604,10 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-               //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
               
-             
             
-                
-                
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -654,8 +616,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -666,7 +630,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt11ActionPerformed
         // TODO add your handling code here:
-        if((!(bt11.getText().equals("")))&&(bt6.getText().equals("")||bt12.getText().equals(""))){
+        if((bt6.getText().equals("")||bt12.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -686,19 +650,9 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-             //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
             
-                
-                
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -707,10 +661,11 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
-            
             
             
           
@@ -719,7 +674,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt12ActionPerformed
         // TODO add your handling code here:
-        if((!(bt12.getText().equals("")))&&(bt11.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals(""))){
+        if((bt11.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -746,19 +701,9 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-               //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
-            
-                
-                
+               
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -767,8 +712,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -779,7 +726,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt7ActionPerformed
         // TODO add your handling code here:
-        if((!(bt7.getText().equals("")))&&(bt6.getText().equals("")||bt12.getText().equals("")||bt8.getText().equals("")||bt2.getText().equals(""))){
+        if((bt6.getText().equals("")||bt12.getText().equals("")||bt8.getText().equals("")||bt2.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -810,19 +757,9 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-               //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
-            
-                
-                
+               
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -831,8 +768,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -842,7 +781,7 @@ public class jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_bt7ActionPerformed
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
-        if((!(bt8.getText().equals("")))&&(bt7.getText().equals("")||bt3.getText().equals("")||bt13.getText().equals("")||bt9.getText().equals(""))){
+        if((bt7.getText().equals("")||bt3.getText().equals("")||bt13.getText().equals("")||bt9.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -873,19 +812,9 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-               //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
               
-             
-            
-                
-                
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -894,8 +823,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -906,7 +837,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt14ActionPerformed
         // TODO add your handling code here:
-        if((!(bt14.getText().equals("")))&&(bt13.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals(""))){
+        if((bt13.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -933,19 +864,9 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-               //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
-            
-                
-                
+               
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -954,8 +875,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -965,7 +888,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt9ActionPerformed
         // TODO add your handling code here:
-         if((!(bt9.getText().equals("")))&&(bt8.getText().equals("")||bt14.getText().equals("")||bt4.getText().equals("")||bt8.getText().equals(""))){
+         if((bt10.getText().equals("")||bt14.getText().equals("")||bt4.getText().equals("")||bt8.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -996,16 +919,10 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
                 
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(jogada>=15){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -1013,8 +930,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -1025,7 +944,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt4ActionPerformed
         // TODO add your handling code here:
-             if((!(bt4.getText().equals("")))&&(bt3.getText().equals("")||bt9.getText().equals("")||bt5.getText().equals(""))){
+             if((bt3.getText().equals("")||bt9.getText().equals("")||bt5.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -1052,19 +971,10 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                 
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                 for(int j=0;j<14;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-              
-             
+                
             
-                
-                
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -1073,8 +983,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -1085,7 +997,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt5ActionPerformed
         // TODO add your handling code here:
-        if((!(bt5.getText().equals("")))&&(bt4.getText().equals("")||bt10.getText().equals(""))){
+        if((bt4.getText().equals("")||bt10.getText().equals(""))){
          int cont=0;
          int verifica=0;  
          
@@ -1117,8 +1029,9 @@ public class jogo extends javax.swing.JFrame {
             
                 
                 
+              
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==14){
+                if(jogada>=15){
                     for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
@@ -1127,8 +1040,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
@@ -1138,7 +1053,7 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt10ActionPerformed
         // TODO add your handling code here:
-      if((!(bt10.getText().equals("")))&&(bt9.getText().equals("")||bt5.getText().equals("")||bt15.getText().equals(""))){
+      if((bt9.getText().equals("")||bt5.getText().equals("")||bt15.getText().equals(""))){
             int cont=0;
             int verifica=0;
           
@@ -1165,16 +1080,10 @@ public class jogo extends javax.swing.JFrame {
                 
                 jogada++;
                 
-                //verifica se os blocos, de 1 a 15, estão preenchidos
-                for(int j=0;j<15;j++){
-                        if(!(test[j].equals(""))){
-                            cont++;
-                        }
-                    }
-                
+               
                 //verifica se os blocos de 1 a 15 estão em ordem crescente
-                if(cont==15){
-                    for(int i=0;i<14;i++){
+                if(jogada>=15){
+                    for(int i=0;i<13;i++){
                         
                         if((Integer.valueOf(test[i]))<Integer.valueOf(test[i+1])){
                             verifica++;
@@ -1182,8 +1091,10 @@ public class jogo extends javax.swing.JFrame {
                     }
                 }
                 
-                if(verifica==14){
-                    JOptionPane.showMessageDialog(null,"Vitória","",1);
+                if(verifica==13){
+         
+                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     
                 }
             
             
