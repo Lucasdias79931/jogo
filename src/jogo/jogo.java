@@ -31,20 +31,22 @@ public class jogo extends javax.swing.JFrame {
         initComponents();
         
         ArrayList<String> lista = new ArrayList();
+        lista.add("");
         for(int j=0;j<14;j++){
             lista.add(String.valueOf(j+1));
         }
         Collections.shuffle(lista);
-         for(int i=0;i<14;i++){
+         for(int i=0;i<15;i++){
              test[i]=lista.get(i);
          }
          
+        //para teste
         /*
         for(int i=0;i<14;i++){
             test[i]=String.valueOf(i+1);
         }
-       */
-        
+        test[14]="";
+        */
        
 
 //atribuir os valores de test nos botões correspondentes
@@ -63,7 +65,7 @@ public class jogo extends javax.swing.JFrame {
        bt12.setText(test[11]);
        bt13.setText(test[12]);
        bt14.setText(test[13]);
-       bt15.setText("");
+       bt15.setText(test[14]);
        
          
         
