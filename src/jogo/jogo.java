@@ -24,6 +24,41 @@ public class jogo extends javax.swing.JFrame {
         
         int jogo;
         
+        public void embaralhar(){
+        ArrayList<String> lista = new ArrayList();
+        lista.add("");
+        for(int j=0;j<19;j++){
+            lista.add(String.valueOf(j+1));
+        }
+        Collections.shuffle(lista);
+         for(int i=0;i<20;i++){
+             test[i]=lista.get(i);
+         }     
+            
+       bt1.setText(test[0]);
+       bt2.setText(test[1]);
+       bt3.setText(test[2]);
+       bt4.setText(test[3]);
+       bt5.setText(test[4]);
+       bt6.setText(test[5]);
+       bt7.setText(test[6]);
+       bt8.setText(test[7]);
+       bt9.setText(test[8]);
+       bt10.setText(test[9]);
+       bt11.setText(test[10]);
+       bt12.setText(test[11]);
+       bt13.setText(test[12]);
+       bt14.setText(test[13]);
+       bt15.setText(test[14]);
+       bt16.setText(test[15]);
+       bt17.setText(test[16]);
+       bt18.setText(test[17]);
+       bt19.setText(test[18]);
+       bt20.setText(test[19]);
+       
+       jogada=0;
+         txtjogadas.setText(String.valueOf(jogada));
+        }
     /**
      * Creates new form jogo
      */
@@ -31,9 +66,9 @@ public class jogo extends javax.swing.JFrame {
         initComponents();
         
         
-      
-        for(int i=0;i<20;i++){
-            test[i]="..";
+        test[19]="...";
+        for(int i=0;i<19;i++){
+            test[i]=String.valueOf(i+1);
         }
       
         
@@ -980,39 +1015,7 @@ public class jogo extends javax.swing.JFrame {
     private void btembaralharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btembaralharActionPerformed
             // TODO add your handling code here:
        
-       ArrayList<String> lista = new ArrayList();
-        lista.add("");
-        for(int j=0;j<19;j++){
-            lista.add(String.valueOf(j+1));
-        }
-        Collections.shuffle(lista);
-         for(int i=0;i<20;i++){
-             test[i]=lista.get(i);
-         }     
-            
-       bt1.setText(test[0]);
-       bt2.setText(test[1]);
-       bt3.setText(test[2]);
-       bt4.setText(test[3]);
-       bt5.setText(test[4]);
-       bt6.setText(test[5]);
-       bt7.setText(test[6]);
-       bt8.setText(test[7]);
-       bt9.setText(test[8]);
-       bt10.setText(test[9]);
-       bt11.setText(test[10]);
-       bt12.setText(test[11]);
-       bt13.setText(test[12]);
-       bt14.setText(test[13]);
-       bt15.setText(test[14]);
-       bt16.setText(test[15]);
-       bt17.setText(test[16]);
-       bt18.setText(test[17]);
-       bt19.setText(test[18]);
-       bt20.setText(test[19]);
-       
-       jogada=0;
-         txtjogadas.setText(String.valueOf(jogada));
+      embaralhar();
     }//GEN-LAST:event_btembaralharActionPerformed
 
     private void btsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsairActionPerformed
@@ -1169,7 +1172,7 @@ public class jogo extends javax.swing.JFrame {
                 if(verifica==17){
          
                      jogo=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
+                     embaralhar();
                 }
                 
             
