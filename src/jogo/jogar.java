@@ -22,7 +22,7 @@ public class jogar {
         
         do{
             start.setVisible(true);
-            if(start.vitoria==0){
+            if(start.jogo==0){
                 confirme=true;
             }else{
                 System.exit(0);

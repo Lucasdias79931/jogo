@@ -18,11 +18,11 @@ import javax.swing.JOptionPane;
  */
 public class jogo extends javax.swing.JFrame {
       
-        String[] test=new String[15];
+        String[] test=new String[20];
         int jogada=0;
         String aux="";
         
-        int vitoria;
+        int jogo;
         
     /**
      * Creates new form jogo
@@ -30,23 +30,13 @@ public class jogo extends javax.swing.JFrame {
     public jogo() {
         initComponents();
         
-        ArrayList<String> lista = new ArrayList();
-        lista.add("");
-        for(int j=0;j<14;j++){
-            lista.add(String.valueOf(j+1));
+        
+      
+        for(int i=0;i<20;i++){
+            test[i]="..";
         }
-        Collections.shuffle(lista);
-         for(int i=0;i<15;i++){
-             test[i]=lista.get(i);
-         }
-         
-        //para teste
-        /*
-        for(int i=0;i<14;i++){
-            test[i]=String.valueOf(i+1);
-        }
-        test[14]="";
-        */
+      
+        
        
 
 //atribuir os valores de test nos botões correspondentes
@@ -66,6 +56,11 @@ public class jogo extends javax.swing.JFrame {
        bt13.setText(test[12]);
        bt14.setText(test[13]);
        bt15.setText(test[14]);
+       bt16.setText(test[15]);
+       bt17.setText(test[16]);
+       bt18.setText(test[17]);
+       bt19.setText(test[18]);
+       bt20.setText(test[19]);
        
          
         
@@ -99,6 +94,15 @@ public class jogo extends javax.swing.JFrame {
         bt13 = new javax.swing.JButton();
         bt9 = new javax.swing.JButton();
         bt14 = new javax.swing.JButton();
+        txtjogadas = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btembaralhar = new javax.swing.JButton();
+        btsair = new javax.swing.JButton();
+        bt17 = new javax.swing.JButton();
+        bt18 = new javax.swing.JButton();
+        bt19 = new javax.swing.JButton();
+        bt20 = new javax.swing.JButton();
+        bt16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,6 +198,54 @@ public class jogo extends javax.swing.JFrame {
             }
         });
 
+        txtjogadas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("JOGADAS");
+
+        btembaralhar.setText("Embaralhar");
+        btembaralhar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btembaralharActionPerformed(evt);
+            }
+        });
+
+        btsair.setText("SAIR");
+        btsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btsairActionPerformed(evt);
+            }
+        });
+
+        bt17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt17ActionPerformed(evt);
+            }
+        });
+
+        bt18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt18ActionPerformed(evt);
+            }
+        });
+
+        bt19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt19ActionPerformed(evt);
+            }
+        });
+
+        bt20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt20ActionPerformed(evt);
+            }
+        });
+
+        bt16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt16ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -201,15 +253,9 @@ public class jogo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,45 +265,112 @@ public class jogo extends javax.swing.JFrame {
                             .addComponent(bt6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bt7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt16, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(bt9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(56, 56, 56))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(118, 118, 118)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(bt12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(bt17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(bt20, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(2, 2, 2)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(bt19, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(116, 116, 116)
+                            .addComponent(bt13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(bt18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btembaralhar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btsair)
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtjogadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtjogadas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bt12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bt7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(bt6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(bt16, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bt17, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btembaralhar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btsair))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bt18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bt19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bt15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bt20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -267,14 +380,14 @@ public class jogo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -285,7 +398,7 @@ public class jogo extends javax.swing.JFrame {
             
      if((bt2.getText().equals("")||bt6.getText().equals(""))){
       
-         int verifica=0;  
+         
          
                 aux = bt1.getText();
                 bt1.setText("");
@@ -303,25 +416,9 @@ public class jogo extends javax.swing.JFrame {
                 }
                 
                 jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
                 
-                
-              //verifica se os blocos de 1 a 14 estão em ordem crescente
-                if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                        if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
+              
             
             
             
@@ -332,9 +429,9 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt13ActionPerformed
         // TODO add your handling code here:
-       if((bt8.getText().equals("")||bt12.getText().equals("")||bt14.getText().equals(""))){
+       if((bt8.getText().equals("")||bt12.getText().equals("")||bt14.getText().equals("")||bt18.getText().equals(""))){
            
-            int verifica=0;
+           
           
                 aux=bt13.getText();
                 bt13.setText("");
@@ -354,11 +451,15 @@ public class jogo extends javax.swing.JFrame {
                      
                     bt8.setText(aux);
                      test[7]=aux;
+                }else if(bt18.getText().equals("")){
+                    
+                    bt18.setText(aux);
+                    test[17]=aux;
                 }
                 test[12]="";
                 
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
              
               
              
@@ -366,36 +467,15 @@ public class jogo extends javax.swing.JFrame {
                 
                 
                 
-                //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
-            
-          
-       }       // TODO 
+                      }       // TODO 
     
     }//GEN-LAST:event_bt13ActionPerformed
 
     private void bt15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt15ActionPerformed
     
-     if((bt14.getText().equals("")||bt10.getText().equals(""))){
+     if((bt14.getText().equals("")||bt10.getText().equals("")||bt20.getText().equals(""))){
         
-            int verifica=0;
+           
           
                 aux=bt15.getText();
                 
@@ -414,10 +494,15 @@ public class jogo extends javax.swing.JFrame {
                     bt14.setText(aux);
                     test[13]=aux;
                 }
+                else if(bt20.getText().equals("")){
+                    
+                    bt20.setText(aux);
+                    test[19]=aux;
+                }
                 test[14]="";
                 
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
               
               
               
@@ -428,28 +513,8 @@ public class jogo extends javax.swing.JFrame {
                
              
             
-                
-                
-                 //verifica se os blocos de 1 a 14 estão em ordem crescente
-             if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                        if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                     
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-                
-            
+        
+             
             
             
           
@@ -460,7 +525,7 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
         if((bt1.getText().equals("")||bt7.getText().equals("")||bt3.getText().equals(""))){
           
-            int verifica=0;
+            
           
                 aux=bt2.getText();
                 bt2.setText("");
@@ -484,26 +549,9 @@ public class jogo extends javax.swing.JFrame {
                 test[1]="";
                 
                 jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
                 
-                
-           //verifica se os blocos de 1 a 14 estão em ordem crescente
-                if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
+           
             
           
        }       //
@@ -513,7 +561,7 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
          if((bt2.getText().equals("")||bt8.getText().equals("")||bt4.getText().equals(""))){
             
-            int verifica=0;
+           
           
                 aux=bt3.getText();
                 bt3.setText("");
@@ -536,30 +584,14 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[2]="";
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
                
               
              
             
                 
                 
-           //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                        if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
+           
             
             
             
@@ -570,7 +602,6 @@ public class jogo extends javax.swing.JFrame {
     private void bt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt6ActionPerformed
       if((bt1.getText().equals("")||bt7.getText().equals("")||bt11.getText().equals(""))){
           
-            int verifica=0;
           
                 aux=bt6.getText();
                 bt6.setText("");
@@ -594,28 +625,10 @@ public class jogo extends javax.swing.JFrame {
                 test[5]="";
                 
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
               
             
-                //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
+               
             
           
        }       //
@@ -623,9 +636,9 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt11ActionPerformed
         // TODO add your handling code here:
-        if((bt6.getText().equals("")||bt12.getText().equals(""))){
+        if((bt6.getText().equals("")||bt12.getText().equals("")||bt16.getText().equals(""))){
           
-            int verifica=0;
+          
           
                 aux=bt11.getText();
                 bt11.setText("");
@@ -639,39 +652,26 @@ public class jogo extends javax.swing.JFrame {
                     bt6.setText(aux);
                      test[5]=aux;
                 }
+                else if(bt16.getText().equals("")){
+                    
+                    bt16.setText(aux);
+                    test[15]=aux;
+                }
                 test[10]="";
                 
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
             
-                //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
+              
           
        }       //
     }//GEN-LAST:event_bt11ActionPerformed
 
     private void bt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt12ActionPerformed
         // TODO add your handling code here:
-        if((bt11.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals(""))){
+        if((bt11.getText().equals("")||bt7.getText().equals("")||bt13.getText().equals("")||bt17.getText().equals(""))){
            
-            int verifica=0;
+           
           
                 aux=bt12.getText();
                 bt12.setText("");
@@ -691,31 +691,17 @@ public class jogo extends javax.swing.JFrame {
                      
                     bt11.setText(aux);
                      test[10]=aux;
+                }else if(bt17.getText().equals("")){
+                    
+                    bt17.setText(aux);
+                    test[16]=aux;
                 }
                 test[11]="";
                 
                 jogada++;
-                
+                 txtjogadas.setText(String.valueOf(jogada)); 
                
-             //verifica se os blocos de 1 a 14 estão em ordem crescente
-             if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
+             
             
           
        } 
@@ -725,7 +711,6 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
         if((bt6.getText().equals("")||bt12.getText().equals("")||bt8.getText().equals("")||bt2.getText().equals(""))){
            
-            int verifica=0;
           
                 aux=bt7.getText();
                 bt7.setText("");
@@ -752,27 +737,10 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[6]="";
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
                 
                
-               //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
+             
             
             
           
@@ -780,9 +748,9 @@ public class jogo extends javax.swing.JFrame {
     }//GEN-LAST:event_bt7ActionPerformed
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
-        if((bt7.getText().equals("")||bt3.getText().equals("")||bt13.getText().equals("")||bt9.getText().equals(""))){
+        if((bt7.getText().equals("")||bt9.getText().equals("")||bt13.getText().equals("")||bt19.getText().equals(""))){
             
-            int verifica=0;
+            
           
                 aux=bt8.getText();
                 bt8.setText("");
@@ -806,31 +774,19 @@ public class jogo extends javax.swing.JFrame {
                      
                     bt9.setText(aux);
                      test[8]=aux;
+                }else if(bt19.getText().equals("")){
+                    
+                    bt19.setText(aux);
+                    test[18]=aux;
                 }
-                test[7]="";
+                
+                test[13]="";
                 jogada++;
                 
+                txtjogadas.setText(String.valueOf(jogada));
                 
               
-                //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
+              
             
           
        } 
@@ -838,9 +794,9 @@ public class jogo extends javax.swing.JFrame {
 
     private void bt14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt14ActionPerformed
         // TODO add your handling code here:
-        if((bt13.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals(""))){
+        if((bt13.getText().equals("")||bt15.getText().equals("")||bt9.getText().equals("")||bt19.getText().equals(""))){
            
-            int verifica=0;
+           
           
                 aux=bt14.getText();
                 bt14.setText("");
@@ -860,32 +816,17 @@ public class jogo extends javax.swing.JFrame {
                      
                     bt15.setText(aux);
                      test[14]=aux;
+                }else if(bt19.getText().equals("")){
+                     
+                    bt19.setText(aux);
+                     test[18]=aux;
                 }
                 test[13]="";
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
                 
                
-                //verifica se os blocos de 1 a 14 estão em ordem crescente
-              if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                        if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                    JOptionPane.showMessageDialog(null,verifica,"",1);
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
+               
           
        }  
     }//GEN-LAST:event_bt14ActionPerformed
@@ -893,8 +834,7 @@ public class jogo extends javax.swing.JFrame {
     private void bt9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt9ActionPerformed
         // TODO add your handling code here:
          if((bt10.getText().equals("")||bt14.getText().equals("")||bt4.getText().equals("")||bt8.getText().equals(""))){
-          
-            int verifica=0;
+  
           
                 aux=bt9.getText();
                 bt9.setText("");
@@ -922,28 +862,9 @@ public class jogo extends javax.swing.JFrame {
                 test[9]="";
                 
                 jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
                 
-                
-            //verifica se os blocos de 1 a 14 estão em ordem crescente
-                if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                        if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
-            
+           
           
        } 
     }//GEN-LAST:event_bt9ActionPerformed
@@ -952,7 +873,7 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
              if((bt3.getText().equals("")||bt9.getText().equals("")||bt5.getText().equals(""))){
            
-            int verifica=0;
+            
           
                 aux=bt4.getText();
                 bt4.setText("");
@@ -975,29 +896,11 @@ public class jogo extends javax.swing.JFrame {
                 }
                 test[3]="";
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
                 
                 
             
-                //verifica se os blocos de 1 a 14 estão em ordem crescente
-                if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                        if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
-            
-            
+               
             
           
        } 
@@ -1007,7 +910,7 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
         if((bt4.getText().equals("")||bt10.getText().equals(""))){
        
-         int verifica=0;  
+          
          
                 aux=bt5.getText();
                 bt5.setText("");
@@ -1025,30 +928,14 @@ public class jogo extends javax.swing.JFrame {
                 }
                 
                 jogada++;
-                
+                  txtjogadas.setText(String.valueOf(jogada));
              
              
             
                 
                 
               
-               //verifica se os blocos de 1 a 14 estão em ordem crescente
-                if(jogada>=15){
-                    for(int i=0;i<13;i++){
-                        
-                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
-                            if((test[i].compareTo(test[i+1]))<0){
-                            verifica++;
-                        }
-                        }
-                    }
-                }
-                
-                if(verifica==12){
-         
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
-                     
-                }
+               
             
           
        }       //
@@ -1058,7 +945,7 @@ public class jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
       if((bt9.getText().equals("")||bt5.getText().equals("")||bt15.getText().equals(""))){
            
-            int verifica=0;
+            
           
                 aux=bt10.getText();
                 bt10.setText("");
@@ -1084,9 +971,191 @@ public class jogo extends javax.swing.JFrame {
                 jogada++;
                 
                
-              //verifica se os blocos de 1 a 14 estão em ordem crescente
-               if(jogada>=15){
-                    for(int i=0;i<13;i++){
+              
+       }       //
+           
+        
+    }//GEN-LAST:event_bt10ActionPerformed
+
+    private void btembaralharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btembaralharActionPerformed
+            // TODO add your handling code here:
+       
+       ArrayList<String> lista = new ArrayList();
+        lista.add("");
+        for(int j=0;j<19;j++){
+            lista.add(String.valueOf(j+1));
+        }
+        Collections.shuffle(lista);
+         for(int i=0;i<20;i++){
+             test[i]=lista.get(i);
+         }     
+            
+       bt1.setText(test[0]);
+       bt2.setText(test[1]);
+       bt3.setText(test[2]);
+       bt4.setText(test[3]);
+       bt5.setText(test[4]);
+       bt6.setText(test[5]);
+       bt7.setText(test[6]);
+       bt8.setText(test[7]);
+       bt9.setText(test[8]);
+       bt10.setText(test[9]);
+       bt11.setText(test[10]);
+       bt12.setText(test[11]);
+       bt13.setText(test[12]);
+       bt14.setText(test[13]);
+       bt15.setText(test[14]);
+       bt16.setText(test[15]);
+       bt17.setText(test[16]);
+       bt18.setText(test[17]);
+       bt19.setText(test[18]);
+       bt20.setText(test[19]);
+       
+       jogada=0;
+         txtjogadas.setText(String.valueOf(jogada));
+    }//GEN-LAST:event_btembaralharActionPerformed
+
+    private void btsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsairActionPerformed
+        // TODO add your handling code here:
+        jogo=1;
+    }//GEN-LAST:event_btsairActionPerformed
+
+    private void bt17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt17ActionPerformed
+        // TODO add your handling code here:
+        if((bt16.getText().equals("")||bt18.getText().equals("")||bt12.getText().equals(""))){
+          
+          
+          
+                aux=bt17.getText();
+                bt17.setText("");
+            
+                if(bt16.getText().equals("")){
+                    
+                    bt16.setText(aux);
+                    test[15]=aux;
+                }else if(bt18.getText().equals("")){
+                     
+                    bt18.setText(aux);
+                     test[17]=aux;
+                }else if(bt12.getText().equals("")){
+                     
+                    bt12.setText(aux);
+                     test[11]=aux;
+                }
+                test[17]="";
+                
+                jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
+            
+              
+          
+       }       //
+    }//GEN-LAST:event_bt17ActionPerformed
+
+    private void bt18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt18ActionPerformed
+     if((bt17.getText().equals("")||bt19.getText().equals("")||bt13.getText().equals(""))){
+          
+          
+          
+                aux=bt18.getText();
+                bt18.setText("");
+            
+                if(bt17.getText().equals("")){
+                    
+                    bt17.setText(aux);
+                    test[16]=aux;
+                }else if(bt19.getText().equals("")){
+                     
+                    bt19.setText(aux);
+                     test[18]=aux;
+                }else if(bt13.getText().equals("")){
+                     
+                    bt13.setText(aux);
+                     test[12]=aux;
+                }
+                test[17]="";
+                
+                jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
+            
+              
+          
+       }              // TODO add your handling code here:
+    }//GEN-LAST:event_bt18ActionPerformed
+
+    private void bt19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt19ActionPerformed
+ if((bt18.getText().equals("")||bt20.getText().equals("")||bt14.getText().equals(""))){
+          
+          
+          
+                aux=bt19.getText();
+                bt19.setText("");
+            
+                if(bt18.getText().equals("")){
+                    
+                    bt18.setText(aux);
+                    test[17]=aux;
+                }else if(bt14.getText().equals("")){
+                     
+                    bt14.setText(aux);
+                     test[13]=aux;
+                }else if(bt20.getText().equals("")){
+                     
+                    bt20.setText(aux);
+                     test[19]=aux;
+                }
+                test[19]="";
+                
+                jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
+            
+              
+          
+       }              // TODO add your handling code here:
+    }//GEN-LAST:event_bt19ActionPerformed
+
+    private void bt20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt20ActionPerformed
+        // TODO add your handling code here:
+        if((bt19.getText().equals("")||bt15.getText().equals(""))){
+        
+            int verifica=0;
+          
+                aux=bt20.getText();
+                
+               
+                bt20.setText("");
+            
+                if(bt19.getText().equals("")){
+                      
+                      bt19.setText(aux);
+                      test[18]=aux;
+                      
+                       
+                      
+                }else if(bt15.getText().equals("")){
+                    
+                    bt15.setText(aux);
+                    test[14]=aux;
+                }
+                test[19]="";
+                
+                jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
+              
+              
+              
+             
+            
+                
+                
+               
+             
+            
+                
+                
+                 //verifica se os blocos de 1 a 14 estão em ordem crescente
+             
+                    for(int i=0;i<18;i++){
                         
                         if((!(test[i].equals("")))&&(!(test[i+1].equals("")))){
                             if((test[i].compareTo(test[i+1]))<0){
@@ -1094,21 +1163,49 @@ public class jogo extends javax.swing.JFrame {
                         }
                         }
                     }
-                }
+                     
                 
-                if(verifica==12){
+                
+                if(verifica==17){
          
-                     vitoria=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
+                     jogo=JOptionPane.showConfirmDialog(null,"\tVitória\nTentativas: "+jogada+"\nSim para reiniciar\nNO para Finalizar","",0);
                      
                 }
+                
             
             
             
           
+       }       //     // TODO 
+    }//GEN-LAST:event_bt20ActionPerformed
+
+    private void bt16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt16ActionPerformed
+        // TODO add your handling code here:
+        if((bt11.getText().equals("")||bt17.getText().equals(""))){
+          
+          
+          
+                aux=bt16.getText();
+                bt16.setText("");
+            
+                if(bt11.getText().equals("")){
+                    
+                    bt11.setText(aux);
+                    test[10]=aux;
+                }else if(bt17.getText().equals("")){
+                     
+                    bt17.setText(aux);
+                     test[16]=aux;
+                }
+                test[15]="";
+                
+                jogada++;
+                  txtjogadas.setText(String.valueOf(jogada));
+            
+              
+          
        }       //
-           
-        
-    }//GEN-LAST:event_bt10ActionPerformed
+    }//GEN-LAST:event_bt16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1153,7 +1250,12 @@ public class jogo extends javax.swing.JFrame {
     private javax.swing.JButton bt13;
     private javax.swing.JButton bt14;
     private javax.swing.JButton bt15;
+    private javax.swing.JButton bt16;
+    private javax.swing.JButton bt17;
+    private javax.swing.JButton bt18;
+    private javax.swing.JButton bt19;
     private javax.swing.JButton bt2;
+    private javax.swing.JButton bt20;
     private javax.swing.JButton bt3;
     private javax.swing.JButton bt4;
     private javax.swing.JButton bt5;
@@ -1161,6 +1263,10 @@ public class jogo extends javax.swing.JFrame {
     private javax.swing.JButton bt7;
     private javax.swing.JButton bt8;
     private javax.swing.JButton bt9;
+    private javax.swing.JButton btembaralhar;
+    private javax.swing.JButton btsair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel txtjogadas;
     // End of variables declaration//GEN-END:variables
 }
